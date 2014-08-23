@@ -1,0 +1,65 @@
+object MainScreen: TMainScreen
+  Left = 0
+  Top = 0
+  Caption = 'Form1'
+  ClientHeight = 615
+  ClientWidth = 360
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnKeyUp = FormKeyUp
+  DesignerMobile = True
+  DesignerWidth = 360
+  DesignerHeight = 640
+  DesignerDeviceName = 'Samsung Galaxy S4'
+  DesignerOrientation = 0
+  DesignerOSVersion = ''
+  object GridPanelLayout2: TGridPanelLayout
+    Align = Client
+    Height = 615.000000000000000000
+    Width = 360.000000000000000000
+    TabOrder = 7
+    ColumnCollection = <
+      item
+        Value = 50.000000000000000000
+      end
+      item
+        Value = 50.000000000000000000
+      end>
+    ControlCollection = <
+      item
+        Column = 0
+        Control = ServisStartBut
+        Row = 0
+      end
+      item
+        Column = 1
+        Control = ServisStopBut
+        Row = 0
+      end>
+    RowCollection = <
+      item
+        Value = 100.000000000000000000
+      end>
+    object ServisStartBut: TButton
+      Align = Client
+      Height = 615.000000000000000000
+      TabOrder = 1
+      Text = 'Ba'#351'lat'
+      Width = 180.000000000000000000
+      OnClick = ServisStartButClick
+    end
+    object ServisStopBut: TButton
+      Align = Client
+      Height = 615.000000000000000000
+      TabOrder = 0
+      Text = 'Durdur'
+      Width = 180.000000000000000000
+      OnClick = ServisStopButClick
+    end
+  end
+  object ForegroundServis1: TForegroundServis
+    Left = 80
+    Top = 80
+  end
+end

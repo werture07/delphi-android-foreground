@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{35F81910-643B-4975-8FD8-F267D65B3FF0}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="ForegroundService.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Demo\DemoService.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="ForegroundService">
+        <MSBuild Projects="ForegroundService.dproj"/>
+    </Target>
+    <Target Name="ForegroundService:Clean">
+        <MSBuild Projects="ForegroundService.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ForegroundService:Make">
+        <MSBuild Projects="ForegroundService.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="DemoService">
+        <MSBuild Projects="Demo\DemoService.dproj"/>
+    </Target>
+    <Target Name="DemoService:Clean">
+        <MSBuild Projects="Demo\DemoService.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="DemoService:Make">
+        <MSBuild Projects="Demo\DemoService.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="ForegroundService;DemoService"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="ForegroundService:Clean;DemoService:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="ForegroundService:Make;DemoService:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
